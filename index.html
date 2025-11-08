@@ -4,9 +4,27 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Your Photo Portfolio</title>
+  <meta name="description" content="A clean, responsive photo portfolio showcasing selected works. View images, metadata and download high-resolution originals." />
+  <meta name="theme-color" content="#071226" />
+
+  <!-- Open Graph (social sharing preview) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Your Photo Portfolio" />
+  <meta property="og:description" content="A clean, responsive photo portfolio showcasing selected works." />
+  <meta property="og:image" content="https://picsum.photos/1200/900?random=1" />
+  <meta property="og:image:alt" content="Sample photo 1" />
+
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <!-- animated background blobs -->
+  <div class="blobs" aria-hidden="true">
+    <span class="blob blob-1"></span>
+    <span class="blob blob-2"></span>
+    <span class="blob blob-3"></span>
+    <span class="blob blob-4"></span>
+  </div>
+
   <header class="site-header">
     <h1>Your Photo Portfolio</h1>
     <p class="subtitle">A simple, responsive gallery to show off your work.</p>
@@ -14,30 +32,53 @@
 
   <main>
     <section class="gallery" id="gallery" aria-label="Photo gallery">
-      <!-- Sample images (you can replace these with your own in /images) -->
-      <figure class="photo" tabindex="0">
-        <img src="https://picsum.photos/800/600?random=1" alt="Sample photo 1" loading="lazy" data-full="https://picsum.photos/1200/900?random=1">
-        <figcaption>Sample photo 1</figcaption>
+      <!-- Sample images (replace with your own in /images). Each figure includes structured metadata in data- attributes -->
+      <figure class="photo" tabindex="0" data-title="Golden Hour on the Ridge" data-subtitle="Sunset portrait" data-date="2025-03-12" data-location="Yosemite, CA" data-camera="Canon EOS R6">
+        <img src="https://picsum.photos/800/600?random=1" alt="Golden Hour on the Ridge" loading="lazy" data-full="https://picsum.photos/1200/900?random=1">
+        <figcaption>
+          <span class="title">Golden Hour on the Ridge</span>
+          <span class="subtitle">Sunset portrait</span>
+        </figcaption>
       </figure>
-      <figure class="photo" tabindex="0">
-        <img src="https://picsum.photos/800/600?random=2" alt="Sample photo 2" loading="lazy" data-full="https://picsum.photos/1200/900?random=2">
-        <figcaption>Sample photo 2</figcaption>
+
+      <figure class="photo" tabindex="0" data-title="City Lines" data-subtitle="Long exposure" data-date="2024-11-02" data-location="Rotterdam, NL" data-camera="Sony A7III">
+        <img src="https://picsum.photos/800/600?random=2" alt="City Lines" loading="lazy" data-full="https://picsum.photos/1200/900?random=2">
+        <figcaption>
+          <span class="title">City Lines</span>
+          <span class="subtitle">Long exposure</span>
+        </figcaption>
       </figure>
-      <figure class="photo" tabindex="0">
-        <img src="https://picsum.photos/800/600?random=3" alt="Sample photo 3" loading="lazy" data-full="https://picsum.photos/1200/900?random=3">
-        <figcaption>Sample photo 3</figcaption>
+
+      <figure class="photo" tabindex="0" data-title="Forest Mist" data-subtitle="Early morning" data-date="2024-09-18" data-location="Black Forest, DE" data-camera="Fujifilm X-T4">
+        <img src="https://picsum.photos/800/600?random=3" alt="Forest Mist" loading="lazy" data-full="https://picsum.photos/1200/900?random=3">
+        <figcaption>
+          <span class="title">Forest Mist</span>
+          <span class="subtitle">Early morning</span>
+        </figcaption>
       </figure>
-      <figure class="photo" tabindex="0">
-        <img src="https://picsum.photos/800/600?random=4" alt="Sample photo 4" loading="lazy" data-full="https://picsum.photos/1200/900?random=4">
-        <figcaption>Sample photo 4</figcaption>
+
+      <figure class="photo" tabindex="0" data-title="Coastal Geometry" data-subtitle="Abstract cliffs" data-date="2025-02-06" data-location="Cornwall, UK" data-camera="Nikon Z7 II">
+        <img src="https://picsum.photos/800/600?random=4" alt="Coastal Geometry" loading="lazy" data-full="https://picsum.photos/1200/900?random=4">
+        <figcaption>
+          <span class="title">Coastal Geometry</span>
+          <span class="subtitle">Abstract cliffs</span>
+        </figcaption>
       </figure>
-      <figure class="photo" tabindex="0">
-        <img src="https://picsum.photos/800/600?random=5" alt="Sample photo 5" loading="lazy" data-full="https://picsum.photos/1200/900?random=5">
-        <figcaption>Sample photo 5</figcaption>
+
+      <figure class="photo" tabindex="0" data-title="Neon Rain" data-subtitle="Street scene" data-date="2024-07-22" data-location="Tokyo, JP" data-camera="Ricoh GR III">
+        <img src="https://picsum.photos/800/600?random=5" alt="Neon Rain" loading="lazy" data-full="https://picsum.photos/1200/900?random=5">
+        <figcaption>
+          <span class="title">Neon Rain</span>
+          <span class="subtitle">Street scene</span>
+        </figcaption>
       </figure>
-      <figure class="photo" tabindex="0">
-        <img src="https://picsum.photos/800/600?random=6" alt="Sample photo 6" loading="lazy" data-full="https://picsum.photos/1200/900?random=6">
-        <figcaption>Sample photo 6</figcaption>
+
+      <figure class="photo" tabindex="0" data-title="Arctic Silence" data-subtitle="Landscape" data-date="2023-12-03" data-location="Svalbard, NO" data-camera="Olympus OM-D E-M1">
+        <img src="https://picsum.photos/800/600?random=6" alt="Arctic Silence" loading="lazy" data-full="https://picsum.photos/1200/900?random=6">
+        <figcaption>
+          <span class="title">Arctic Silence</span>
+          <span class="subtitle">Landscape</span>
+        </figcaption>
       </figure>
     </section>
   </main>
@@ -46,11 +87,16 @@
   <div id="lightbox" class="lightbox" aria-hidden="true" role="dialog" aria-label="Image preview">
     <button id="closeBtn" class="lightbox-close" aria-label="Close (Esc)">✕</button>
     <button id="prevBtn" class="lightbox-nav" aria-label="Previous (Left Arrow)">◀</button>
-    <div class="lightbox-content">
+
+    <div class="lightbox-content" role="document">
       <img id="lightboxImg" src="" alt="" />
-      <p id="lightboxCaption" class="lightbox-caption"></p>
+      <div id="lightboxMeta" class="lightbox-meta" aria-live="polite">
+        <h2 id="lightboxTitle" class="meta-title"></h2>
+        <div id="lightboxDetails" class="meta-details"></div>
+      </div>
       <a id="downloadBtn" class="download-btn" href="#" download>Download</a>
     </div>
+
     <button id="nextBtn" class="lightbox-nav" aria-label="Next (Right Arrow)">▶</button>
   </div>
 
